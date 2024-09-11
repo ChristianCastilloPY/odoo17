@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="mail_template_blog_data" model="mail.template">
+            <field name="name">Email Template For Blog</field>
+            <field name="model_id" ref="send_email_po.model_purchase_order"/>
+            <field name="subject">Mail Template: Demo Mail</field>
+            <field name="email_from">{{ object.company_id.email }}</field>
+            <field name="email_to">{{object.partner_id.email}}</field>        
+            <field name="body_html" type="html">
+                Dear Coworker,
+                This is email for test
+                Thank you
+                Christian Castillo
+            </field>
+        </record>
+    </data>
+</odoo>

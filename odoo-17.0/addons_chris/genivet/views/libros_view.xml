@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="libros_view_form" model="ir.ui.view">
+        <field name="name">libros.view.form</field>
+        <field name="model">libros</field>
+        <field name="arch" type="xml">
+            <form string="Libro">
+                <header>
+                    <button name="action_cambiar_estado" string="Cambiar Estado" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="editorial" />
+                            <field name="prueba" attrs="{'invisible':[('editorial','=','1')]}" />
+                            <field name="estado" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="libros_view_tree" model="ir.ui.view">
+        <field name="name">libros.view.tree</field>
+        <field name="model">libros</field>
+        <field name="arch" type="xml">
+            <tree string="Libros">
+                <field name="name"/>
+                <field name="editorial"/>
+                <field name="estado"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="mail_template_blog" model="mail.template">
+            <field name="name">Email Template For Blog</field>
+            <field name="model_id" ref="send_email_po.model_purchase_order"/>
+            <field name="email_from">
+                <t t-esc="object.company_id.email"/>
+            </field>
+            <field name="email_to">
+                <t t-esc="object.partner_id.email"/>
+            </field>
+            <field name="subject">Mail Template: Demo Mail</field>
+            <field name="body_html" type="html">
+                <p>Modelo Purchase Order:  <span t-field="object.name" /></p>
+                <t t-if="object.date_approve">
+                    <p>Entre en el primer if donde se pregunta si hay un date_approve
+                        <span t-field="object.name"/>
+                    </p>
+                    <!-- <t t-if="object.action_disparar_correo()">
+                        <p>Ingresando en el primer if del primer if</p>
+                        <t t-esc="object.action_disparar_correo()"/>
+                    </t>                    
+                    <t t-else="">
+                        <p>Entre en el else, del primer bucle</p>
+                    </t> -->
+                </t>
+                <t t-else="">
+                    <p>Entre en el else, en vez del if</p>
+                </t>
+            </field>
+        </record>
+    </data>
+</odoo>
